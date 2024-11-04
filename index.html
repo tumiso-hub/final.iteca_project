@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacDee Sporting Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>MacDee Sporting Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Shopping Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="products">
+            <h2>Our Products</h2>
+            <div class="product-item">
+                <h3>Team Jerseys - R200</h3>
+                <p>High-quality jerseys for your team.</p>
+                <label for="jersey-team">Select Team:</label>
+                <select id="jersey-team">
+                    <option value="Mamelodi Sundowns">Mamelodi Sundowns</option>
+                    <option value="Kaizer Chiefs">Kaizer Chiefs</option>
+                    <option value="Orlando Pirates">Orlando Pirates</option>
+                    <option value="Supersport United">Supersport United</option>
+                </select>
+                <button onclick="addToCart('Team Jerseys', 200, document.getElementById('jersey-team').value)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <h3>Team Shorts - R150</h3>
+                <p>Comfortable and durable shorts for your team.</p>
+                <label for="shorts-team-1">Select Team:</label>
+                <select id="shorts-team-1">
+                    <option value="Mamelodi Sundowns">Mamelodi Sundowns</option>
+                    <option value="Kaizer Chiefs">Kaizer Chiefs</option>
+                    <option value="Orlando Pirates">Orlando Pirates</option>
+                    <option value="Supersport United">Supersport United</option>
+                </select>
+                <button onclick="addToCart('Team Shorts', 150, document.getElementById('shorts-team-1').value)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <h3>Team Hats - R70</h3>
+                <p>Stylish hats to show off your team spirit.</p>
+                <label for="hats-team">Select Team:</label>
+                <select id="hats-team">
+                    <option value="Mamelodi Sundowns">Mamelodi Sundowns</option>
+                    <option value="Kaizer Chiefs">Kaizer Chiefs</option>
+                    <option value="Orlando Pirates">Orlando Pirates</option>
+                    <option value="Supersport United">Supersport United</option>
+                </select>
+                <button onclick="addToCart('Team Hats', 70, document.getElementById('hats-team').value)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <h3>Team Flags - R100</h3>
+                <p>Flags to show off your team spirit.</p>
+                <label for="flags-team">Select Team:</label>
+                <select id="flags-team">
+                    <option value="Mamelodi Sundowns">Mamelodi Sundowns</option>
+                    <option value="Kaizer Chiefs">Kaizer Chiefs</option>
+                    <option value="Orlando Pirates">Orlando Pirates</option>
+                    <option value="Supersport United">Supersport United</option>
+                </select>
+                <button onclick="addToCart('Team Flags', 100, document.getElementById('flags-team').value)">Add to Cart</button>
+            </div>
+        </section>
+        <section class="special-orders">
+            <h2>Special Orders</h2>
+            <p>If you need merchandise for specific teams, call us at <strong>0817753421</strong>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MacDee Sporting Shop</p>
+    </footer>
+
+    <script>
+        function addToCart(product, price, team) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ product, price, team });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(product + ' (' + team + ') added to cart for R' + price);
+        }
+    </script>
+</body>
+</html>
+
+
